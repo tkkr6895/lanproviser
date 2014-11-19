@@ -1,42 +1,45 @@
 package lanproviser;
 	import java.util.Scanner;
 	import java.io.*;
+	import javax.swing.*;
 
 	public class front
 	{
 		
-		public static void main(String [] args)throws IOException
+		public static void main(String [] args)throws IOException,NullPointerException
 		{
 			Scanner moo = new Scanner(System.in);
 
 			file_extracter obj1 = new file_extracter("/Users/trishalkumar/Documents/workspace/lanproviser/src/main/resources/big.txt");
-			System.out.println("enter a sentence here");
-			String user_input = moo.nextLine();
+			
+			String user_input = JOptionPane.showInputDialog("enter a sentence here","Lanproviser-Input");
 			lanproviser in = new lanproviser();
-			System.out.println("MENU:");
-			System.out.println("1. Spelling Corrector");
-			System.out.println("2. Grammar Corrector");
-			System.out.print("Please enter in te tsk you would like to perform: ");
-			int choice = moo.nextInt();
+			Object[] options = {"Spelling Check", "Grammar Check"};
+			int n = JOptionPane.showOptionDialog(null, "Please enter choice of operation to be performed", "Lanproviser-Operation Choice",JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options,options[0]);
 			
 			
-			switch(choice)
+			
+			switch(n)
 			{
-				case 1: 			
+				case 0: 			
 					string_extracter obj2 = new string_extracter(user_input);
 
 					String sentence[];
 					sentence = obj2.tokenize_string();
+					String[] out = new String[50];
 					
 					for(int i = 0; i <sentence.length; i++)
 					{
-						System.out.print(obj1.corrector(sentence[i])+" ");
+					
+						out[i] = obj1.corrector(sentence[i]+" ");
 					}
+					JList list = new JList(out);
+					JOptionPane.showMessageDialog(null,list);
+					
 					//System.out.print('\b');
 					//System.out.println(".");
-					moo.close();
 					break;
-				case 2 : in.grammar(user_input);
+				case 1 : in.grammar(user_input);
 				break;
 				default: System.out.println("Invalid choice");
 					

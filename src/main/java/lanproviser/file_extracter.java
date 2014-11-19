@@ -2,6 +2,7 @@ package lanproviser;
 import java.util.*;
 import java.util.regex.*;
 import java.io.*;
+import java.awt.*;
 
 class file_extracter
 {
@@ -46,7 +47,7 @@ class file_extracter
 
 	}
 
-	public String corrector(String word)throws IOException,FileNotFoundException
+	public String corrector(String word)throws IOException,FileNotFoundException,NullPointerException
 	{
 
 	 	if(map.containsKey(word))
