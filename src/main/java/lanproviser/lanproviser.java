@@ -1,5 +1,6 @@
 package lanproviser;
 import java.io.IOException;
+import javax.swing.*;
 import java.util.List;
 
 import org.languagetool.JLanguageTool;
@@ -16,9 +17,9 @@ class lanproviser {
 		List<RuleMatch> matches = langTool.check(moo);
 		 for (RuleMatch match : matches) 
 		{
-		  System.out.println("Errors found at" +
-		  match.getLine() + ", column " +match.getColumn() + ": " + match.getMessage());
-		  System.out.println("Suggested correction " +match.getSuggestedReplacements());
+			
+		  JOptionPane.showMessageDialog(null,"Input Text is\n"+moo+"\nErrors found at line " +
+		  match.getLine() + ", column " +match.getColumn() + ": " + match.getMessage() +"\nSuggested correction " +match.getSuggestedReplacements());
 		}
 		 
 	}
