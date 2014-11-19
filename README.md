@@ -16,7 +16,7 @@ Sarah Christina <sarahshekeran@gmail.com>, ISE, PESIT
 Shakul Ramkumar <shockzp@gmail.com>, ISE,PESIT          
 Trishal Kumar <tkkr6895@gmail.com>, ISE,PESIT
 
-A project under the mentorship of:
+A project under the mentorship of:    
 Dr. Shylaja S S         
 Head of Dept. and Professor     
 Information Science and Engineering Dept. (ISE)   
