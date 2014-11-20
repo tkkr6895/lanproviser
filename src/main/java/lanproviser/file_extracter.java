@@ -2,6 +2,7 @@ package lanproviser;
 import java.util.*;
 import java.util.regex.*;
 import java.io.*;
+import java.net.URL;
 import java.awt.*;
 
 class file_extracter
@@ -13,6 +14,7 @@ class file_extracter
 
 	public file_extracter(String file)throws IOException,FileNotFoundException
 	{
+		
 		in = new BufferedReader(new FileReader(file));
 		p = Pattern.compile("\\w+");
 
