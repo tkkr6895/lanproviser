@@ -15,12 +15,19 @@ class lanproviser {
 		JLanguageTool langTool = new JLanguageTool(new BritishEnglish());
 		langTool.activateDefaultPatternRules();
 		List<RuleMatch> matches = langTool.check(moo);
-		 for (RuleMatch match : matches) 
+		
+		if(matches.isEmpty()){
+			JOptionPane.showMessageDialog(null, "Whoo! No errors!");
+		}
+		else{
+		 for ( RuleMatch match : matches) 
 		{
 			
 		  JOptionPane.showMessageDialog(null,"Input Text is\n"+moo+"\nErrors found at line " +
 		  match.getLine() + ", column " +match.getColumn() + ": " + match.getMessage() +"\nSuggested correction " +match.getSuggestedReplacements());
 		}
+		}
+		
 		 
 	}
 

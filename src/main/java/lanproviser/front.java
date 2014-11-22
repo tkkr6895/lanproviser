@@ -1,27 +1,30 @@
 package lanproviser;
-	import java.util.Scanner;
 	import java.io.*;
-	import javax.swing.*;
+import javax.swing.*;
 
 	public class front
 	{
 		
-		public static void main(String [] args)throws IOException,NullPointerException
+		public static void main(String [] args)throws IOException,NullPointerException,FileNotFoundException
 		{
-			Scanner moo = new Scanner(System.in);
-
-			file_extracter obj1 = new file_extracter("/Users/trishalkumar/Documents/workspace/lanproviser/src/main/resources/big.txt");
+			int ch;
+			do{
+			
+			Object[] options = {"Relative Spell Check", "Grammar Check"};
+			int n = JOptionPane.showOptionDialog(null, "Please enter choice of operation to be performed", "Lanproviser-Operation Choice",JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options,options[1]);
 			
 			String user_input = JOptionPane.showInputDialog("enter a sentence here","Lanproviser-Input");
 			lanproviser in = new lanproviser();
-			Object[] options = {"Spelling Check", "Grammar Check"};
-			int n = JOptionPane.showOptionDialog(null, "Please enter choice of operation to be performed", "Lanproviser-Operation Choice",JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options,options[0]);
+			
+			
 			
 			
 			
 			switch(n)
 			{
-				case 0: 			
+				case 0: 	
+					String path = JOptionPane.showInputDialog("Enter the path of the diciotnary");
+					file_extracter obj1 = new file_extracter(path);
 					string_extracter obj2 = new string_extracter(user_input);
 
 					String sentence[];
@@ -44,6 +47,9 @@ package lanproviser;
 				default: System.out.println("Invalid choice");
 					
 			}
+			Object[] options1 = {"Yes", "No"};
+			 ch = JOptionPane.showOptionDialog(null, "Would you like to start over", "Lanproviser-Operation Choice",JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options1,options1[0]);
+			}while(ch!=1);
 
 		}
 	}
